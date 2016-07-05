@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 filetype plugin indent on    " required
+
 set laststatus=2 " 常にステータスラインを表示
 set statusline=%<%F\ %r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v(ASCII=%03.3b,HEX=%02.2B)\ %l/%L(%P)%m
 
@@ -15,7 +15,6 @@ set formatoptions=lmoq " テキスト整形オプション，マルチバイト�
 set vb t_vb= " ビープをならさない
 set browsedir=buffer " Exploreの初期ディレクトリ
 set showcmd " コマンドをステータス行に表示
-filetype plugin on " ファイルタイプごとのプラグイン
 
 set showmatch " 括弧の対応をハイライト
 set showcmd " 入力中のコマンドを表示
@@ -55,10 +54,8 @@ autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd! FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
-" autocomplete and history
-" set wildmenu " コマンド補完を強化
-set wildchar=<tab> " コマンド補完を開始するキー
-set wildmode=list:full " リスト表示，最長マッチ
+set wildmenu " コマンド補完時に現在の候補をハイライト
+set wildchar=<tab> " コマンド補完を開始するキーをtabキーに割り当て(デフォルトでtabキーに割り当てられてる)
 set history=1000  " コマンド・検索パターンの履歴数
 
 " search
@@ -74,8 +71,7 @@ set ffs=unix,dos,mac
 " デフォルトエンコーディング
 set encoding=utf-8
 
-" key bindings
-" 行単位で移動(1行が長い場合に便利)
+" 折り返しでも行単位で移動
 nnoremap j gj
 nnoremap k gk
 
@@ -90,6 +86,7 @@ nmap # #zz
 nmap g* g*zz
 nmap g# g#zz
 nmap G Gzz
+
 "usキーボードで使いやすく
 nmap ; :
 
@@ -102,12 +99,10 @@ if exists('&ambiwidth')
 endif
 
 " filetype difinition
-"-------------------------------------------------------------------------------
 au BufRead,BufNewFile *.cgi	set filetype=perl
 au BufRead,BufNewFile *.t	set filetype=perl
 
-" bless
-"-------------------------------------------------------------------------------
+" かっこを閉じまでつけたら左にシフト
 imap {} {}<Left>
 imap [] []<Left>
 imap () ()<Left>
