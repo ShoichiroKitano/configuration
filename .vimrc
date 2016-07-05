@@ -56,7 +56,7 @@ autocmd! FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
 " autocomplete and history
-set wildmenu " コマンド補完を強化
+" set wildmenu " コマンド補完を強化
 set wildchar=<tab> " コマンド補完を開始するキー
 set wildmode=list:full " リスト表示，最長マッチ
 set history=1000  " コマンド・検索パターンの履歴数
@@ -67,10 +67,6 @@ set ignorecase " 大文字小文字無視
 set smartcase  " 大文字ではじめたら大文字小文字無視しない
 set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
-"選択した文字列を検索
-vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]'")<CR><CR>
-"選択した文字列を置換
-vnoremap /r "xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 
 " encoding
 " 改行文字
@@ -82,10 +78,10 @@ set encoding=utf-8
 " 行単位で移動(1行が長い場合に便利)
 nnoremap j gj
 nnoremap k gk
-" バッファ周り
-nmap <silent> <C-l> :bnext<CR>
-nmap <silent> <C-h> :bprevious<CR>
-nmap <silent> ,l	:BufExplorer<CR>
+
+"BufferExploreをキーバインドに割り当て
+nmap <silent> ,l :BufExplorer<CR>
+
 " 検索などで飛んだらそこを真ん中に
 nmap n nzz
 nmap N Nzz
@@ -97,14 +93,10 @@ nmap G Gzz
 "usキーボードで使いやすく
 nmap ; :
 
-" plugins
-"-------------------------------------------------------------------------------
-" rails.vim
-au BufNewFile,BufRead *.rhtml set tabstop=2 shiftwidth=2 expandtab
-au BufNewFile,BufRead *.rb set tabstop=2 shiftwidth=2 expandtab"
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
-" □とか○の文字があってもカーソル位置がずれないようにする
+
+" 全角の記号が半角幅にならないようにする
 if exists('&ambiwidth')
   set ambiwidth=double
 endif
@@ -112,6 +104,7 @@ endif
 " filetype difinition
 "-------------------------------------------------------------------------------
 au BufRead,BufNewFile *.cgi	set filetype=perl
+au BufRead,BufNewFile *.t	set filetype=perl
 
 " bless
 "-------------------------------------------------------------------------------
@@ -123,7 +116,7 @@ imap ” ”<Left>
 imap <> <><Left>
 imap “ “<Left>
 
-
+"行末にある文字を赤字でハイライト
 augroup HighlightTrailingSpaces
   autocmd!
   autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
