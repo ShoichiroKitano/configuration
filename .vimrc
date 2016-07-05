@@ -22,23 +22,21 @@ set showcmd " 入力中のコマンドを表示
 set number  " 行番号表示
 set list  " 不可視文字表示
 set listchars=tab:>.,trail:_,extends:>,precedes:<" 不可視文字の表示形式
-set display=uhex	  " 印字不可能文字を16進数で表示
+set display=uhex " 印字不可能文字を16進数で表示
+
 " 全角スペースをハイライト
 if has("syntax")
-	syntax on
-	function! ActivateInvisibleIndicator()
-		syntax match InvisibleJISX0208Space "　" display containedin=ALL
-		highlight InvisibleJISX0208Space term=underline ctermbg=Cyan guibg=Cyan
-"		syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
-"		highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=Red
-"		syntax match InvisibleTab "\t" display containedin=ALL
-"		highlight InvisibleTab term=underline ctermbg=Cyan guibg=Cyan
-	endf
-	augroup invisible
-		autocmd! invisible
-		autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
-	augroup END
+  syntax on
+  function! ActivateInvisibleIndicator()
+    syntax match InvisibleJISX0208Space "　" display containedin=ALL
+    highlight InvisibleJISX0208Space term=underline ctermbg=Cyan guibg=Cyan
+  endf
+  augroup invisible
+    autocmd! invisible
+    autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
+  augroup END
 endif
+
 " カレントウィンドウにのみ罫線を引く
 augroup cch
   autocmd! cch
@@ -47,13 +45,9 @@ augroup cch
 augroup END
 
 " indent
-"-------------------------------------------------------------------------------
 set autoindent
 set smartindent
-"set cindent
-" softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
 set tabstop=2 shiftwidth=2 softtabstop=2
-"set noexpandtab " タブをスペースに展開しない
 set expandtab
 augroup vimrc
 autocmd! FileType perl setlocal shiftwidth=4 tabstop=4 softtabstop=4
@@ -62,15 +56,13 @@ autocmd! FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
 " autocomplete and history
-"-------------------------------------------------------------------------------
-set wildmenu		   " コマンド補完を強化
-set wildchar=<tab>	 " コマンド補完を開始するキー
+set wildmenu " コマンド補完を強化
+set wildchar=<tab> " コマンド補完を開始するキー
 set wildmode=list:full " リスト表示，最長マッチ
-set history=1000	   " コマンド・検索パターンの履歴数
+set history=1000  " コマンド・検索パターンの履歴数
 set complete+=k		" 補完に辞書ファイル追加
 
 " search
-"-------------------------------------------------------------------------------
 set wrapscan   " 最後まで検索したら先頭へ戻る
 set ignorecase " 大文字小文字無視
 set smartcase  " 大文字ではじめたら大文字小文字無視しない
@@ -82,14 +74,12 @@ vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]'")<CR><CR>
 vnoremap /r "xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 
 " encoding
-"-------------------------------------------------------------------------------
 " 改行文字
 set ffs=unix,dos,mac
 " デフォルトエンコーディング
 set encoding=utf-8
 
 " key bindings
-"-------------------------------------------------------------------------------
 " 行単位で移動(1行が長い場合に便利)
 nnoremap j gj
 nnoremap k gk
