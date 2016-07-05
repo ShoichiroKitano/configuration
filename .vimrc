@@ -99,8 +99,8 @@ if exists('&ambiwidth')
 endif
 
 " filetype difinition
-au BufRead,BufNewFile *.cgi	set filetype=perl
-au BufRead,BufNewFile *.t	set filetype=perl
+au BufRead,BufNewFile *.t set filetype=perl
+au BufRead,BufNewFile *.tx set filetype=html
 
 " かっこを閉じまでつけたら左にシフト
 imap {} {}<Left>
