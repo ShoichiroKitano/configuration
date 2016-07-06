@@ -4,12 +4,10 @@ filetype plugin indent on    " required
 
 set laststatus=2 " 常にステータスラインを表示
 set statusline=%<%F\ %r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v(ASCII=%03.3b,HEX=%02.2B)\ %l/%L(%P)%m
-
-set scrolloff=5 " スクロール時の余白確保
 set textwidth=0 " 一行に長い文章を書いていても自動折り返しをしない
 set nobackup " バックアップ取らない
-set autoread " 他で書き換えられたら自動で読み直す
 set noswapfile " スワップファイル作らない
+set autoread " 他で書き換えられたら自動で読み直す
 set hidden " 編集中でも他のファイルを開けるようにする
 set formatoptions=lmoq " テキスト整形オプション，マルチバイト系を追加
 set vb t_vb= " ビープをならさない
