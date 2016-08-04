@@ -79,11 +79,11 @@ nmap <silent> ,l :BufExplorer<CR>
 " 検索などで飛んだらそこを真ん中に
 nmap n nzz
 nmap N Nzz
-nmap * *zz
-nmap # #zz
-nmap g* g*zz
-nmap g# g#zz
+nmap gd gdzz
 nmap G Gzz
+
+" カーソル以下の文字列をハイライト
+nmap ,w #*
 
 "usキーボードで使いやすく
 nmap ; :
