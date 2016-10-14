@@ -118,3 +118,6 @@ augroup END
 
 "ctags 連携
 nnoremap <C-]> g<C-]>
+
+"アルファベットをインクリメント
+set nf=alpha
