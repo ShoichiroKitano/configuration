@@ -73,7 +73,7 @@ set encoding=utf-8
 nnoremap j gj
 nnoremap k gk
 
-"BufferExploreをキーバインドに割り当て
+"BufferExploreをキーバインドに割り当て(version 7.2.8)
 nmap <silent> ,l :BufExplorer<CR>
 
 " 検索などで飛んだらそこを真ん中に
@@ -116,7 +116,7 @@ augroup HighlightTrailingSpaces
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
-"ctags 連携
+"ctagsでデフォルトでジャンプできる候補を表示
 nnoremap <C-]> g<C-]>
 
 "アルファベットをインクリメント
