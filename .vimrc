@@ -85,9 +85,6 @@ nmap G Gzz
 " カーソル以下の文字列をハイライト
 nmap ,w #*
 
-"usキーボードで使いやすく
-nmap ; :
-
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
 
