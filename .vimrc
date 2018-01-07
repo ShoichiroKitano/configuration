@@ -69,18 +69,8 @@ set ffs=unix,dos,mac
 " デフォルトエンコーディング
 set encoding=utf-8
 
-" 折り返しでも行単位で移動
-nnoremap j gj
-nnoremap k gk
-
-"BufferExploreをキーバインドに割り当て(version 7.2.8)
+"BufferExploreをキーバインドに割り当て
 nmap <silent> ,l :BufExplorer<CR>
-
-" 検索などで飛んだらそこを真ん中に
-nmap n nzz
-nmap N Nzz
-nmap gd gdzz
-nmap G Gzz
 
 " カーソル以下の文字列をハイライト
 nmap ,w #*
@@ -96,15 +86,6 @@ endif
 " filetype difinition
 au BufRead,BufNewFile *.t set filetype=perl
 au BufRead,BufNewFile *.tx set filetype=html
-
-" かっこを閉じまでつけたら左にシフト
-imap {} {}<Left>
-imap [] []<Left>
-imap () ()<Left>
-imap “” “”<Left>
-imap ” ”<Left>
-imap <> <><Left>
-imap “ “<Left>
 
 "行末にある文字を赤字でハイライト
 augroup HighlightTrailingSpaces
