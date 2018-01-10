@@ -41,7 +41,7 @@ augroup cch
   autocmd WinEnter,BufRead * set cursorline
 augroup END
 
-" indent
+" インデントの設定
 set autoindent
 set smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
@@ -56,14 +56,14 @@ set wildmenu " コマンド補完時に現在の候補をハイライト
 set wildchar=<tab> " コマンド補完を開始するキーをtabキーに割り当て(デフォルトでtabキーに割り当てられてる)
 set history=1000  " コマンド・検索パターンの履歴数
 
-" search
+" 検索の設定
 set wrapscan   " 最後まで検索したら先頭へ戻る
 set ignorecase " 大文字小文字無視
 set smartcase  " 大文字ではじめたら大文字小文字無視しない
 set incsearch  " インクリメンタルサーチ
 set hlsearch   " 検索文字をハイライト
 
-" encoding
+" エンコーディング
 " 改行文字
 set ffs=unix,dos,mac
 " デフォルトエンコーディング
@@ -83,11 +83,11 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
-" filetype difinition
-au BufRead,BufNewFile *.t set filetype=perl
-au BufRead,BufNewFile *.tx set filetype=html
+" 拡張子の設定
+au BufRead,BufNewFile *.t set filetype=perl " perlのテストファイル
+au BufRead,BufNewFile *.tx set filetype=html " perlのテンプレートエンジン
 
-"行末にある文字を赤字でハイライト
+"行末にあるスペースを赤字でハイライト
 augroup HighlightTrailingSpaces
   autocmd!
   autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
