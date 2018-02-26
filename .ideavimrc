@@ -8,4 +8,4 @@ nmap ,w #*
 imap <C-]><ESC> " jisキーボードでもCtrl-[でエスケープ
 nnoremap <silent> ,p :action ParameterInfo<CR> " パラメータを参照する
 nnoremap <silent> ,c :action Compile<CR> " コンパイル
-nnoremap <slient> ,l :action RecentChangedFiles<CR> " :lsの代わり。直近編集したファイルを一覧表示
+nnoremap <silent> ,l :action RecentChangedFiles<CR> " :lsの代わり。直近編集したファイルを一覧表示
