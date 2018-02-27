@@ -5,10 +5,17 @@ nmap ,w #*
 
 
 " intellij
-imap <C-]><ESC> " jisキーボードでもCtrl-[でエスケープ
+" jisキーボードでもCtrl-[でエスケープ
+imap <C-]><ESC>
+" パラメータを参照する
 nnoremap <silent> ,p :action ParameterInfo<CR> " パラメータを参照する
+" コンパイル
 nnoremap <silent> ,c :action Compile<CR> " コンパイル
+" :lsの代わりのl 直近編集したファイルを一覧表示
 nnoremap <silent> ,l :action RecentChangedFiles<CR> " :lsの代わりのl 直近編集したファイルを一覧表示
+" inの略 デバッグモードによるstep in
 nnoremap <silent> ,i :action StepInto<CR> " inの略 デバッグモードによるstep in
+" outの略 デバッグモードによるstep out
 nnoremap <silent> ,o :action StepOut<CR> " outの略 デバッグモードによるstep out
+" overのv デバッグモードによるstep out
 nnoremap <silent> ,v :action StepOver<CR> " overのv デバッグモードによるstep out
