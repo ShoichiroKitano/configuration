@@ -8,14 +8,14 @@ nmap ,w #*
 " jisキーボードでもCtrl-[でエスケープ
 imap <C-]><ESC>
 " パラメータを参照する
-nnoremap <silent> ,p :action ParameterInfo<CR> " パラメータを参照する
+nnoremap <silent> ,p :action ParameterInfo<CR>
 " コンパイル
-nnoremap <silent> ,c :action Compile<CR> " コンパイル
+nnoremap <silent> ,c :action Compile<CR>
 " :lsの代わりのl 直近編集したファイルを一覧表示
-nnoremap <silent> ,l :action RecentChangedFiles<CR> " :lsの代わりのl 直近編集したファイルを一覧表示
+nnoremap <silent> ,l :action RecentChangedFiles<CR>
 " inの略 デバッグモードによるstep in
-nnoremap <silent> ,i :action StepInto<CR> " inの略 デバッグモードによるstep in
+nnoremap <silent> ,i :action StepInto<CR>
 " outの略 デバッグモードによるstep out
-nnoremap <silent> ,o :action StepOut<CR> " outの略 デバッグモードによるstep out
+nnoremap <silent> ,o :action StepOut<CR>
 " overのv デバッグモードによるstep out
-nnoremap <silent> ,v :action StepOver<CR> " overのv デバッグモードによるstep out
+nnoremap <silent> ,v :action StepOver<CR>
