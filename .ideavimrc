@@ -3,10 +3,10 @@ set incsearch
 
 nmap ,w #*
 
-
 " intellij
 " jisキーボードでもCtrl-[でエスケープ
 imap <C-]><ESC>
+
 " パラメータを参照する
 nnoremap <silent> ,p :action ParameterInfo<CR>
 
