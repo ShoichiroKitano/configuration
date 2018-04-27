@@ -15,7 +15,7 @@ nnoremap <silent> ,p :action ParameterInfo<CR>
 nnoremap <silent> ,c :action Compile<CR>
 
 " :lsの代わりのl 直近編集したファイルを一覧表示
-nnoremap <silent> ,l :action RecentChangedFiles<CR>
+nnoremap <silent> ,l :action Switcher<CR>
 " everywhereのe プロジェクト内で色々検索
 nnoremap <silent> ,e :action SearchEverywhere<CR>
 
