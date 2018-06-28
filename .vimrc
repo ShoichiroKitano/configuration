@@ -102,4 +102,4 @@ nnoremap <C-]> g<C-]>
 set nf=alpha
 
 " :Eのバグ修正
-cmap :E :Explore<CR>
+command E Ex
