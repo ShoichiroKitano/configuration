@@ -86,6 +86,7 @@ endif
 " 拡張子の設定
 au BufRead,BufNewFile *.t set filetype=perl " perlのテストファイル
 au BufRead,BufNewFile *.tx set filetype=html " perlのテンプレートエンジン
+au BufRead,BufNewFile *.exs set filetype=elixir " perlのテンプレートエンジン
 
 "行末にあるスペースを赤字でハイライト
 augroup HighlightTrailingSpaces
@@ -99,3 +100,6 @@ nnoremap <C-]> g<C-]>
 
 "アルファベットをインクリメント
 set nf=alpha
+
+" :Eのバグ修正
+cmap :E :Explore<CR>
