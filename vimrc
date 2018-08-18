@@ -13,12 +13,11 @@ set formatoptions=lmoq " テキスト整形オプション，マルチバイト�
 set vb t_vb= " ビープをならさない
 set browsedir=buffer " Exploreの初期ディレクトリ
 set showcmd " コマンドをステータス行に表示
-
 set showmatch " 括弧の対応をハイライト
 set showcmd " 入力中のコマンドを表示
 set number  " 行番号表示
 set list  " 不可視文字表示
-set listchars=tab:>.,trail:_,extends:>,precedes:<" 不可視文字の表示形式
+set listchars=tab:>.,trail:_,extends:>,precedes:< " 不可視文字の表示形式
 set display=uhex " 印字不可能文字を16進数で表示
 
 " 全角スペースをハイライト
@@ -46,10 +45,17 @@ set autoindent
 set smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab
+
+function SetForGolang()
+  set listchars=tab:\ \ ,trail:_,extends:>,precedes:<
+  set noexpandtab
+endfunction
+
 augroup vimrc
-autocmd! FileType perl setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd! FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd! FileType go call SetForGolang()
+  autocmd! FileType perl setlocal shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd! FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
 set wildmenu " コマンド補完時に現在の候補をハイライト
@@ -86,7 +92,6 @@ endif
 " 拡張子の設定
 au BufRead,BufNewFile *.t set filetype=perl " perlのテストファイル
 au BufRead,BufNewFile *.tx set filetype=html " perlのテンプレートエンジン
-au BufRead,BufNewFile *.exs set filetype=elixir " perlのテンプレートエンジン
 
 "行末にあるスペースを赤字でハイライト
 augroup HighlightTrailingSpaces
