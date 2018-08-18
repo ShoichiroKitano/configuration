@@ -2,7 +2,7 @@
 
 set -eu
 
-cd rm .tmux.conf || true
+rm ~/.tmux.conf || true
 (cd $(dirname $0)
 cd ../
-ln -s $(pwd)/.tmux.conf ~/tmux.conf)
+ln -s $(pwd)/tmux.conf ~/.tmux.conf)

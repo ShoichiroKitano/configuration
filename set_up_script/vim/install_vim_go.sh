@@ -9,12 +9,15 @@ set -eu
 )
 
 (
-  cd
-  rm .vim/syntax/go.vim || true
-  rm .vim/indent/go.vim || true
-  rm .vim/ftdetect//gofiletype.vim || true
-  VIM_GO_PATH='.vim/source/vim-go'
-  ln -s $VIM_GO_PATH/syntax/go.vim .vim/syntax/go.vim
-  ln -s $VIM_GO_PATH/indent/go.vim .vim/indent/go.vim
-  ln -s $VIM_GO_PATH/ftdetect/gofiletype.vim .vim/ftdetect//gofiletype.vim
+  cd ~/.vim/syntax
+  rm ~/.vim/syntax/go.vim || true
+  ln -s ../source/vim-go/syntax/go.vim go.vim
+
+  cd ~/.vim/indent
+  rm ~/.vim/indent/go.vim || true
+  ln -s ../source/vim-go/indent/go.vim go.vim
+
+  cd ~/.vim/ftdetect
+  rm ~/.vim/ftdetect//gofiletype.vim || true
+  ln -s ../source/vim-go/ftdetect/gofiletype.vim gofiletype.vim
 )

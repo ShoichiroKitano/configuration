@@ -7,7 +7,7 @@
 )
 
 (
-  cd
-  rm .vim/plugin/bufexplorer.vim || true
-  ln -s .vim/source/bufexplorer/plugin/bufexplorer.vim .vim/plugin/bufexplorer.vim
+  rm ~/.vim/plugin/bufexplorer.vim || true
+  cd ~/.vim/plugin
+  ln -s ../source/bufexplorer/plugin/bufexplorer.vim bufexplorer.vim
 )
