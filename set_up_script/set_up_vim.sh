@@ -9,3 +9,4 @@ cd $(dirname $0)
 ./vim/install_bufexplorer.sh
 ./vim/install_kotlin_vim.sh
 ./vim/install_vim_elixir.sh
+./vim/install_typescript_vim.sh
