@@ -8,3 +8,7 @@
 (global-linum-mode t)
 (set-face-attribute 'linum nil :foreground "#FF0")
 (setq linum-format "%3d  ")
+
+;; メニューバーを非表示
+(menu-bar-mode 0)
+
