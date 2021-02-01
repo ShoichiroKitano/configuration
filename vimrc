@@ -76,10 +76,10 @@ set ffs=unix,dos,mac
 set encoding=utf-8
 
 "BufferExploreをキーバインドに割り当て
-nmap <silent> ,l :BufExplorer<CR>
+nmap <silent> <C-k><C-l> :BufExplorer<CR>
 
 " カーソル以下の文字列をハイライト
-nmap ,w #*
+nmap <C-k><C-w> #*
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
