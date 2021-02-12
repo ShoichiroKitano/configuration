@@ -1,12 +1,15 @@
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/git-completion.bash
+. /usr/local/etc/bash_completion.d/git-prompt.sh
+. /usr/local/etc/bash_completion.d/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 PS1='\W$(__git_ps1)$ '
 
+
 export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.pub-cache/bin:$PATH"
+
 eval "$(anyenv init -)"
 
-export PATH="$HOME/.cargo/bin:$HOME/.pub-cache/bin:$PATH"
 export GOPATH="$HOME/project/gomodule"
 export GO111MODULE=on
 export GOENV_DISABLE_GOPATH=1
