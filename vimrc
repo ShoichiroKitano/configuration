@@ -108,3 +108,6 @@ set nf=alpha
 
 " :Eのバグ修正
 command E Ex
+
+" matchit.vimを有効化
+source $VIMRUNTIME/macros/matchit.vim
