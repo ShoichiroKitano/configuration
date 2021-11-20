@@ -110,14 +110,31 @@ set nf=alpha
 " :Eのバグ修正
 command E Ex
 
-" matchit.vimを有効化
+" matchit.vimを有効(rubyのdo endを%でジャンプ)
 source $VIMRUNTIME/macros/matchit.vim
 
-command! -nargs=+ GitGrep call GitGrep(<f-args>)
-function! GitGrep(...)
+command -nargs=+ GitGrep call GitGrep(<f-args>)
+function GitGrep(...)
   if a:0 == 1
     execute("vim " . a:1 . " `git ls-files .`" . " | cw")
   else
     execute("vim " . a:1 . " `git ls-files " . a:2 . "`" . " | cw")
   end
 endfunction!
+
+command -nargs=0 Ref call Ref()
+function Ref()
+  echo "ctrl + E 余白付きでスクロール"
+  echo "\"* yankする際にクリップボードにコピー"
+  echo ":reg レジスタの状態を出力"
+  echo ":!command コマンド実行"
+  echo ":!command % カレントバッファのファイルでコマンド実行"
+  echo ":r !command コマンド実行してカレント行の直下に書き込み"
+  echo ":w !command コマンド実行して結果をコマンドラインのバッファに出力"
+  echo ":'<,'> !command 指定した範囲を標準入力としてコマンドを実行して指定した範囲に書き込み(filter)"
+  echo "ctrl + r レジスタ番号 挿入モードとExモードでレジスタの内容をペースト. :!と組み合わせるとカレント行を実行できる"
+  echo "ctrl + a インクリメント"
+  echo "ctrl + x デクリメント"
+  echo "矩形選択で g ctrl + a 各行でインクリメント"
+  echo "矩形選択で g ctrl + x 各行でデクリメント"
+endfunction
