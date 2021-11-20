@@ -80,6 +80,7 @@ nmap <silent> <C-k><C-l> :BufExplorer<CR>
 
 " カーソル以下の文字列をハイライト
 nmap <C-k><C-w> #*
+" nmap <C-k><C-w> :exe "/".expand('<cword>')<CR>
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
@@ -111,3 +112,12 @@ command E Ex
 
 " matchit.vimを有効化
 source $VIMRUNTIME/macros/matchit.vim
+
+command! -nargs=+ GitGrep call GitGrep(<f-args>)
+function! GitGrep(...)
+  if a:0 == 1
+    execute("vim " . a:1 . " `git ls-files .`" . " | cw")
+  else
+    execute("vim " . a:1 . " `git ls-files " . a:2 . "`" . " | cw")
+  end
+endfunction!
