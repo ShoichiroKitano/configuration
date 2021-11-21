@@ -137,4 +137,6 @@ function Ref()
   echo "ctrl + x デクリメント"
   echo "矩形選択で g ctrl + a 各行でインクリメント"
   echo "矩形選択で g ctrl + x 各行でデクリメント"
+  echo ":enew No Nameバッファを作成"
+  echo ":new Windowを分割してNo Nameバッファを作成"
 endfunction
