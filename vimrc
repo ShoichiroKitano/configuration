@@ -46,13 +46,14 @@ set smartindent
 set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab
 
-function SetForGolang()
+function SetForGolangAndC()
   setlocal listchars=tab:\ \ ,trail:_,extends:>,precedes:<
   setlocal noexpandtab
 endfunction
 
 augroup vimrc
-  autocmd! FileType go call SetForGolang()
+  autocmd! FileType go call SetForGolangAndC()
+  autocmd! FileType c call SetForGolangAndC()
   autocmd! FileType perl setlocal shiftwidth=4 tabstop=4 softtabstop=4
   autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd! FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
