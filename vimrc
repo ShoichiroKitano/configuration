@@ -47,8 +47,8 @@ set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab
 
 function SetForGolang()
-  set listchars=tab:\ \ ,trail:_,extends:>,precedes:<
-  set noexpandtab
+  setlocal listchars=tab:\ \ ,trail:_,extends:>,precedes:<
+  setlocal noexpandtab
 endfunction
 
 augroup vimrc
