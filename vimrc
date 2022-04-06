@@ -79,6 +79,9 @@ set encoding=utf-8
 "BufferExploreをキーバインドに割り当て
 nmap <silent> <C-k><C-l> :BufExplorer<CR>
 
+"BufferExploreでNo Nameバッファを表示する
+let g:bufExplorerShowNoName=1
+
 " カーソル以下の文字列をハイライト
 nmap <C-k><C-w> #*
 " nmap <C-k><C-w> :exe "/".expand('<cword>')<CR>
