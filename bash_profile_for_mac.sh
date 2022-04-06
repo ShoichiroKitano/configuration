@@ -3,7 +3,6 @@
 GIT_PS1_SHOWDIRTYSTATE=true
 PS1='\W$(__git_ps1)$ '
 
-
 export PATH="$HOME/.anyenv/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$HOME/.pub-cache/bin:$PATH" # for homebrew rust
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH" # for homebrew mysql5.7
@@ -28,3 +27,4 @@ export JAVA_HOME=`/usr/libexec/java_home -v 12`
 [ -f $(brew --prefix)/etc/bash_completion ] && . $(brew --prefix)/etc/bash_completion
 
 export BASH_SILENCE_DEPRECATION_WARNING=1 # stop warning of zsh migration
+export HISTCONTROL=ignorespace
