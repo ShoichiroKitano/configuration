@@ -144,3 +144,5 @@ function Ref()
   echo ":enew No Nameバッファを作成"
   echo ":new Windowを分割してNo Nameバッファを作成"
 endfunction
+
+set background=dark
