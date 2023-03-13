@@ -145,4 +145,8 @@ function Ref()
   echo ":new Windowを分割してNo Nameバッファを作成"
 endfunction
 
+" 色をmac vimに合わせる
 set background=dark
+
+" mouse操作を無効化
+set mouse=
