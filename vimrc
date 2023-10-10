@@ -52,6 +52,11 @@ function SetForGolangAndC()
   setlocal noexpandtab
 endfunction
 
+function SetForC()
+  setlocal listchars=tab:\ \ ,trail:_,extends:>,precedes:<
+  setlocal noexpandtab
+endfunction
+
 augroup vimrc
   autocmd! FileType go call SetForGolangAndC()
   autocmd! FileType c call SetForGolangAndC()
@@ -151,3 +156,16 @@ set background=dark
 
 " mouse操作を無効化
 set mouse=
+
+" Load settings for each location.
+augroup vimrc-local
+  autocmd!
+  autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
+augroup END
+
+function! s:vimrc_local(loc)
+  let files = findfile('.vimrc.local', escape(a:loc, ' ') . ';', -1)
+  for i in reverse(filter(files, 'filereadable(v:val)'))
+    source `=i`
+  endfor
+endfunction
