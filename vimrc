@@ -89,8 +89,7 @@ nmap <silent> <C-k><C-l> :BufExplorer<CR>
 let g:bufExplorerShowNoName=1
 
 " カーソル以下の文字列をハイライト
-nmap <C-k><C-w> #*
-" nmap <C-k><C-w> :exe "/".expand('<cword>')<CR>
+nnoremap <silent> <C-k><C-w> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
