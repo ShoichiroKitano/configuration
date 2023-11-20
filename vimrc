@@ -52,11 +52,6 @@ function SetForGolangAndC()
   setlocal noexpandtab
 endfunction
 
-function SetForC()
-  setlocal listchars=tab:\ \ ,trail:_,extends:>,precedes:<
-  setlocal noexpandtab
-endfunction
-
 augroup vimrc
   autocmd! FileType go call SetForGolangAndC()
   autocmd! FileType c call SetForGolangAndC()
@@ -111,7 +106,7 @@ augroup HighlightTrailingSpaces
 augroup END
 
 "ctagsでデフォルトでジャンプできる候補を表示
-nnoremap <C-]> g<C-]>
+" nnoremap <C-]> g<C-]>
 
 "アルファベットをインクリメント
 set nf=alpha
@@ -168,3 +163,66 @@ function! s:vimrc_local(loc)
     source `=i`
   endfor
 endfunction
+
+let s:previousBuffer = 0
+let s:searchedTagName = ''
+let s:curpos = []
+
+def s:JumpTag()
+  var tagNumber = split(getline('.'))[0]
+  exec printf(":buffer %d", s:originBuffer)
+  cursor(slice(s:curpos, 1, len(s:curpos)))
+  exec printf(":%stag %s", tagNumber, s:searchedTagName)
+  s:curpos = []
+  s:originBuffer = 0
+  s:searchedTagName = ''
+enddef
+
+def TagExplorerExact()
+  s:searchedTagName = expand('<cword>')
+  var tags = taglist(printf("\\<%s\\>", s:searchedTagName))
+  if empty(tags)
+    return
+  endif
+  s:originBuffer = bufnr("%") + 0
+  s:curpos = getpos('.')
+  echo s:curpos
+
+  execute 'silent keepjumps hide edit ' .. '[TagExplorer]'
+  setlocal buftype=nofile
+  setlocal modifiable
+  setlocal noreadonly
+  setlocal noswapfile
+  setlocal nowrap
+  setlocal bufhidden=wipe
+  setlocal nolist
+  setlocal tabstop=4
+  setlocal nonumber
+
+  var i = 1
+  for tag in tags
+    var cmd = tag['cmd']
+    if cmd[1] == '^'
+      cmd = slice(cmd, 2)
+    else
+      cmd = slice(cmd, 1)
+    endif
+    if cmd[len(cmd) - 2] == '$'
+      cmd = slice(cmd, 0, len(cmd) - 2)
+    else
+      cmd = slice(cmd, 0, -1)
+    endif
+    cmd = substitute(cmd, "\t", ' ', 'g')
+    setline(i, printf(" %2d\t%s\t%s", i, cmd, tag['filename']))
+    i += 1
+  endfor
+
+  silent exec ":%!column -s $'\t' -t"
+
+  setlocal nomodifiable
+
+  nnoremap <script> <silent> <nowait> <buffer> <CR> :call <SID>JumpTag()<CR>
+enddef
+
+command! TagExplorerExact :call TagExplorerExact()
+nnoremap <silent> <C-]> :TagExplorerExact<CR>
