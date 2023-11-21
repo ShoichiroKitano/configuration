@@ -186,18 +186,16 @@ def TagExplorerExact()
   endif
   s:originBuffer = bufnr("%") + 0
   s:curpos = getpos('.')
-  echo s:curpos
 
   execute 'silent keepjumps hide edit ' .. '[TagExplorer]'
+  setlocal nobuflisted
   setlocal buftype=nofile
-  setlocal modifiable
-  setlocal noreadonly
-  setlocal noswapfile
-  setlocal nowrap
   setlocal bufhidden=wipe
+  setlocal noswapfile
+  setlocal wrap
   setlocal nolist
-  setlocal tabstop=4
   setlocal nonumber
+  setlocal modifiable
 
   var i = 1
   for tag in tags
