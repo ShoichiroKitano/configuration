@@ -3,7 +3,8 @@
 (
   cd ~/.vim/source
   rm -fr bufexplorer || true
-  git clone https://github.com/jlanzarotta/bufexplorer.git
+  # git clone https://github.com/jlanzarotta/bufexplorer.git
+  git clone --depth=1 -b v7.4.27 https://github.com/jlanzarotta/bufexplorer.git
 )
 
 (
